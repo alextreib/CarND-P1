@@ -1,11 +1,5 @@
 # **Finding Lane Lines on the Road** 
 
-## Writeup Template
-
-### You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
-
----
-
 **Finding Lane Lines on the Road**
 
 The goals / steps of this project are the following:
@@ -34,14 +28,17 @@ If you'd like to include images to show how the pipeline works, here is how to i
 
 ### 2. Identify potential shortcomings with your current pipeline
 
+The obvious problem is that the calculated lanes are wiggling very much in the video.
 
-One potential shortcoming would be what would happen when ... 
+Another shortcoming is that the algorithm relies on the position of the camera. If it is moved, the whole lane detection won't work (see challenge.mp4).
 
-Another shortcoming could be ...
+Moreover, a curve is not recognized as straight line rather than a part of a ellipse. This could lead to wrong assumptions and be dangerous for self-driving cars.  
 
 
 ### 3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to ...
+To solve the wiggling issue, a filter could be applied over all the images. For example a moving average with a low N.
 
-Another potential improvement could be to ...
+To get rid of the fixed position problem, 
+
+A possible improvement to recognize a curve would be using a approximate a part of a ellipse instead of line. 
